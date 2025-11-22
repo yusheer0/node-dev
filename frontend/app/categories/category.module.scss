@@ -1,0 +1,64 @@
+@import '@/styles/variables.scss';
+
+.categoryHeader {
+  margin-bottom: $spacing-3xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: $border-width solid $color-border;
+
+  .categoryTitle {
+    font-size: $font-size-3xl;
+    font-weight: bold;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  .categoryDescription {
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  .categoryStats {
+    font-size: $font-size-base;
+    color: $color-text-muted;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+
+    .breadcrumbLink {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .breadcrumbSeparator {
+      margin: 0 $spacing-sm;
+    }
+
+    .breadcrumbCurrent {
+      color: $color-text-secondary;
+    }
+  }
+}
+
+.articlesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0; // Убираем gap, так как у каждого articleCard есть border-bottom
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-3xl 0;
+  color: $color-text-muted;
+  font-size: $font-size-lg;
+}

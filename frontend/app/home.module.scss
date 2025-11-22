@@ -1,0 +1,188 @@
+@import '../styles/variables.scss';
+
+.sectionTitle {
+  font-size: $font-size-2xl;
+  font-weight: bold;
+  color: $color-text-primary;
+  margin: $spacing-3xl 0 $spacing-xl 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.blockContainerArticles {
+    width: 100%;
+    border-bottom: 1px solid $color-border;
+}
+
+.blockContainerCategories {
+    width: 100%;
+    border-top: 1px solid $color-border;
+    border-bottom: 1px solid $color-border;
+}
+
+.topArticles {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-right: 1px solid $color-border;
+    border-left: 1px solid $color-border;
+
+  .topArticlesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.categories {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-right: 1px solid $color-border;
+    border-left: 1px solid $color-border;
+
+  .categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .categoryCard {
+    display: block;
+    padding: $spacing-lg;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background-color: $color-background;
+    border-bottom: 1px solid $color-border;
+
+    // Элементы 1-3: бордер справа и снизу (уже есть снизу, добавляем справа)
+    &:nth-child(2n+1),
+    &:nth-child(2n+2) {
+      border-right: 1px solid $color-border;
+    }
+
+    // Элемент 4: только снизу (убираем правую границу, если есть)
+    &:nth-child(4) {
+      border-right: none;
+    }
+
+    // Элементы 5-7: снизу и справа (уже есть снизу, добавляем справа)
+    &:nth-child(5),
+    &:nth-child(6),
+    &:nth-child(7) {
+      border-right: 1px solid $color-border;
+    }
+
+    // Элемент 8: только снизу (убираем правую границу)
+    &:nth-child(8) {
+      border-right: none;
+    }
+
+    // Элементы 9-11: снизу и справа (уже есть снизу, добавляем справа)
+    &:nth-child(9),
+    &:nth-child(10),
+    &:nth-child(11) {
+      border-right: 1px solid $color-border;
+      border-bottom: none;
+    }
+
+    // Элемент 12: только снизу (убираем правую границу)
+    &:nth-child(12) {
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &:hover {
+      box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .categoryName {
+      font-size: $font-size-lg;
+      font-weight: 600;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-xs 0;
+    }
+
+    .categoryDescription {
+      color: $color-text-secondary;
+      font-size: $font-size-sm;
+      margin: 0 0 $spacing-md 0;
+      line-height: $line-height-relaxed;
+    }
+
+    .categoryCount {
+      color: $color-text-muted;
+      font-size: $font-size-sm;
+      font-weight: 500;
+    }
+  }
+}
+
+.recentArticles {
+  .articlesList {
+    display: flex;
+    flex-direction: column;
+    gap: 0; // Убираем gap, так как у каждого articleCard есть border-bottom
+  }
+}
+
+.articlesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0; // Убираем gap, так как у каждого articleCard есть border-bottom
+}
+
+.emptyState {
+  text-align: center;
+  padding: $spacing-3xl 0;
+  color: $color-text-muted;
+  font-size: $font-size-lg;
+}
+
+.categoryHeader {
+  margin-bottom: $spacing-3xl;
+  padding-bottom: $spacing-xl;
+  border-bottom: $border-width solid $color-border;
+
+  .categoryTitle {
+    font-size: $font-size-3xl;
+    font-weight: bold;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-md 0;
+  }
+
+  .categoryDescription {
+    font-size: $font-size-lg;
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  .categoryStats {
+    font-size: $font-size-base;
+    color: $color-text-muted;
+    margin: 0 0 $spacing-lg 0;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+
+    .breadcrumbLink {
+      color: $color-primary;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .breadcrumbSeparator {
+      margin: 0 $spacing-sm;
+    }
+
+    .breadcrumbCurrent {
+      color: $color-text-secondary;
+    }
+  }
+}

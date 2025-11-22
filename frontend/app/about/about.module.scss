@@ -1,0 +1,63 @@
+@import '@/styles/variables.scss';
+
+.aboutPage {
+  height: 100%;
+
+  .aboutSection {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-left: 1px solid $color-border;
+    border-right: 1px solid $color-border;
+
+    .aboutTitle {
+      font-size: $font-size-3xl;
+      font-weight: bold;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-2xl 0;
+      text-align: center;
+    }
+
+    .aboutContent {
+      width: 100%;
+      line-height: $line-height-relaxed;
+      padding: $spacing-md;
+
+      p {
+        margin: 0;
+        font-size: $font-size-base;
+        color: $color-text-secondary;
+      }
+
+      h2 {
+        font-size: $font-size-xl;
+        font-weight: 500;
+        color: $color-text-primary;
+      }
+
+      ul {
+        margin-bottom: $spacing-lg;
+        text-decoration: none;
+
+        li {
+          margin-bottom: $spacing-sm;
+          color: $color-text-secondary;
+          list-style: none;
+
+          a {
+            color: $color-primary;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+
+      strong {
+        color: $color-text-primary;
+        font-weight: bold;
+      }
+    }
+  }
+}

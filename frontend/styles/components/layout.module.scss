@@ -1,0 +1,66 @@
+@import '@/styles/variables.scss';
+
+.layout {
+  height: calc(100vh - 80px);
+  background-color: $color-background;
+  color: $color-text-primary;
+  scrollbar-gutter: stable;
+}
+
+.header {
+  height: 80px;
+  border-bottom: $border-width solid $color-border;
+  padding: $spacing-md 0;
+
+  .headerContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .titleLink {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .title {
+      font-size: $font-size-xl;
+      font-weight: bold;
+      color: #ff3939;
+      margin: 0;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+
+    .nav {
+      display: flex;
+      gap: $spacing-lg;
+
+      .navLink {
+        color: $color-text-secondary;
+        text-decoration: none;
+        font-size: $font-size-base;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $color-accent;
+        }
+      }
+    }
+  }
+}
+
+.main {
+  height: 100%;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  padding: 0;
+}

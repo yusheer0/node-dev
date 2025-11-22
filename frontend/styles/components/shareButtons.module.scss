@@ -1,0 +1,87 @@
+@import '@/styles/variables.scss';
+
+.shareButtons {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background-color: $color-surface;
+  border-radius: $border-radius-md;
+  border: $border-width solid $color-border;
+
+  .shareLabel {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    font-weight: 500;
+  }
+
+  .buttons {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  .shareButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: $border-width solid transparent;
+    border-radius: $border-radius-md;
+    text-decoration: none;
+    font-size: $font-size-sm;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &.vk {
+      background-color: #0077ff;
+      color: white;
+
+      &:hover {
+        background-color: #005ce6;
+      }
+    }
+
+    &.telegram {
+      background-color: #0088cc;
+      color: white;
+
+      &:hover {
+        background-color: #006699;
+      }
+    }
+
+    &.twitter {
+      background-color: #1da1f2;
+      color: white;
+
+      &:hover {
+        background-color: #0d8ecf;
+      }
+    }
+
+    &.copy {
+      background-color: $color-border;
+      color: $color-text-primary;
+      border-color: $color-border;
+
+      &:hover {
+        background-color: $color-hover;
+        border-color: $color-text-secondary;
+      }
+
+      &.copied {
+        background-color: #28a745;
+        color: white;
+        border-color: #28a745;
+      }
+    }
+  }
+}

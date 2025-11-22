@@ -1,0 +1,57 @@
+@import '@/styles/variables.scss';
+
+.articlePage {
+  border-right: $border-width solid $color-border;
+  border-left: $border-width solid $color-border;
+
+  .article {
+    border-bottom: $border-width solid $color-border;
+    padding: $spacing-md;
+
+    .articleTitle {
+      font-size: $font-size-2xl;
+      font-weight: bold;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-md 0;
+    }
+
+    .articleMeta {
+      color: $color-text-muted;
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .articleViews {
+        margin: 0;
+      }
+    }
+
+    .articleContent {
+      color: $color-text-secondary;
+      line-height: $line-height-relaxed;
+      font-size: $font-size-base;
+
+      p {
+        margin-bottom: $spacing-md;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .commentsSection {
+    border-bottom: $border-width solid $color-border;
+    padding: 0;
+
+    .commentsTitle {
+      font-size: $font-size-2xl;
+      font-weight: bold;
+      color: $color-text-primary;
+      margin: 0 0 $spacing-lg 0;
+    }
+  }
+}

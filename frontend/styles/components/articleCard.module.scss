@@ -1,0 +1,64 @@
+@import '@/styles/variables.scss';
+
+.articleCard {
+  &.topCard {
+    border-right: 1px solid $color-border;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .articleLink {
+    min-height: 320px;
+    padding: $spacing-md;
+    text-decoration: none;
+    color: $color-text-primary;
+    display: block;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-size: $font-size-lg;
+    font-weight: bold;
+    color: $color-text-primary;
+    margin: 0 0 $spacing-xs 0;
+    transition: color 0.2s ease;
+  }
+
+  .excerpt {
+    color: $color-text-secondary;
+    line-height: $line-height-relaxed;
+    font-size: $font-size-base;
+  }
+
+  .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+    flex-direction: column;
+    gap: $spacing-xs;
+
+    .date {
+      margin: 0;
+    }
+
+    .stats {
+      display: flex;
+      gap: $spacing-md;
+      align-items: center;
+
+      .views,
+      .comments {
+        margin: 0;
+        white-space: nowrap;
+      }
+    }
+  }
+}

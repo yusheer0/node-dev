@@ -1,0 +1,72 @@
+@import '@/styles/variables.scss';
+
+.commentForm {
+  border-bottom: $border-width solid $color-border;
+  padding: $spacing-lg;
+  margin-bottom: $spacing-lg;
+
+  .title {
+    font-size: $font-size-base;
+    font-weight: 500;
+    color: $color-text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xs;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .input,
+  .textarea {
+    width: 100%;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+
+  .textarea {
+    resize: vertical;
+    min-height: 120px;
+    margin-bottom: $spacing-xs;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+
+    input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  .submitButton {
+    padding: $spacing-sm $spacing-lg;
+    background-color: $color-accent;
+    color: $color-background;
+    font-size: $font-size-base;
+    font-weight: bold;
+    border: $border-width solid $color-accent;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: $color-background;
+      color: $color-accent;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

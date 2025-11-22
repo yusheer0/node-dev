@@ -1,0 +1,249 @@
+@import '@/styles/variables.scss';
+
+.categoriesManagement {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-xl;
+
+    h2 {
+      margin: 0;
+      font-size: $font-size-2xl;
+      color: $color-text-primary;
+    }
+
+    .createButton {
+      padding: $spacing-sm $spacing-lg;
+      background-color: $color-primary;
+      color: white;
+      border: none;
+      border-radius: $border-radius-md;
+      cursor: pointer;
+      font-size: $font-size-base;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: $color-primary-hover;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    .modalContent {
+      background-color: $color-background;
+      border: $border-width solid $color-border;
+      border-radius: $border-radius-md;
+      padding: $spacing-xl;
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      overflow-y: auto;
+
+      h3 {
+        margin: 0 0 $spacing-lg 0;
+        font-size: $font-size-xl;
+        color: $color-text-primary;
+      }
+
+      .form {
+        .formGroup {
+          margin-bottom: $spacing-lg;
+
+          label {
+            display: block;
+            margin-bottom: $spacing-xs;
+            font-size: $font-size-sm;
+            font-weight: 500;
+            color: $color-text-secondary;
+          }
+
+          .input,
+          .textarea {
+            width: 100%;
+            padding: $spacing-sm $spacing-md;
+            border: $border-width solid $color-border;
+            border-radius: $border-radius-md;
+            background-color: $color-surface;
+            color: $color-text-primary;
+            font-size: $font-size-base;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+              outline: none;
+              border-color: $color-primary;
+            }
+          }
+
+          .textarea {
+            resize: vertical;
+            min-height: 80px;
+          }
+        }
+
+        .formActions {
+          display: flex;
+          gap: $spacing-md;
+          justify-content: flex-end;
+
+          .saveButton {
+            padding: $spacing-sm $spacing-lg;
+            background-color: $color-primary;
+            color: white;
+            border: none;
+            border-radius: $border-radius-md;
+            cursor: pointer;
+            font-size: $font-size-base;
+            font-weight: 500;
+
+            &:hover {
+              background-color: $color-primary-hover;
+            }
+          }
+
+          .cancelButton {
+            padding: $spacing-sm $spacing-lg;
+            background-color: transparent;
+            color: $color-text-secondary;
+            border: $border-width solid $color-border;
+            border-radius: $border-radius-md;
+            cursor: pointer;
+            font-size: $font-size-base;
+
+            &:hover {
+              background-color: $color-surface;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .categoriesList {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+  }
+
+  .categoryCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: $spacing-lg;
+    border: $border-width solid $color-border;
+    border-radius: $border-radius-md;
+    background-color: $color-background;
+
+    .categoryInfo {
+      flex: 1;
+
+      .categoryName {
+        margin: 0 0 $spacing-xs 0;
+        font-size: $font-size-lg;
+        font-weight: bold;
+        color: $color-text-primary;
+      }
+
+      .categorySlug {
+        margin: 0 0 $spacing-sm 0;
+        font-size: $font-size-sm;
+        color: $color-primary;
+        font-family: monospace;
+      }
+
+      .categoryDescription {
+        margin: 0 0 $spacing-md 0;
+        color: $color-text-secondary;
+        font-size: $font-size-base;
+        line-height: $line-height-relaxed;
+      }
+
+      .categoryMeta {
+        display: flex;
+        gap: $spacing-lg;
+        font-size: $font-size-sm;
+        color: $color-text-muted;
+
+        .order,
+        .articlesCount {
+          margin: 0;
+        }
+      }
+    }
+
+    .categoryActions {
+      display: flex;
+      gap: $spacing-sm;
+      margin-left: $spacing-lg;
+
+      .editButton,
+      .deleteButton {
+        padding: $spacing-xs $spacing-sm;
+        border: none;
+        border-radius: $border-radius-md;
+        cursor: pointer;
+        font-size: $font-size-lg;
+        transition: all 0.2s ease;
+
+        &:hover:not(:disabled) {
+          transform: scale(1.1);
+        }
+      }
+
+      .editButton {
+        background-color: $color-primary;
+        color: white;
+
+        &:hover {
+          background-color: $color-primary-hover;
+        }
+      }
+
+      .deleteButton {
+        background-color: #dc3545;
+        color: white;
+
+        &:hover:not(:disabled) {
+          background-color: #c82333;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .emptyState {
+    text-align: center;
+    padding: $spacing-3xl 0;
+    color: $color-text-muted;
+    font-size: $font-size-lg;
+  }
+
+  .loading {
+    text-align: center;
+    padding: $spacing-3xl 0;
+    color: $color-text-secondary;
+    font-size: $font-size-lg;
+  }
+}
+
+
+
+
+
+
