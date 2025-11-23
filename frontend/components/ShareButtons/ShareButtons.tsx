@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/styles/components/shareButtons.module.scss';
+import styles from './ShareButtons.module.scss';
 
 interface ShareButtonsProps {
   title: string;

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Article } from '@/lib/api';
-import styles from '@/styles/components/articleCard.module.scss';
+import styles from './ArticleCard.module.scss';
 
 interface ArticleCardProps {
   article: Article;

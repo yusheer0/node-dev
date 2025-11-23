@@ -1,21 +1,17 @@
-@import '@/styles/variables.scss';
+@import '../styles/variables.scss';
 
 .layout {
-  height: calc(100vh - 80px);
   background-color: $color-background;
   color: $color-text-primary;
-  scrollbar-gutter: stable;
 }
 
 .header {
   height: 80px;
   border-bottom: $border-width solid $color-border;
-  padding: $spacing-md 0;
 
   .headerContent {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,11 +52,6 @@
 }
 
 .main {
-  height: 100%;
-  padding: 0;
-}
-
-.container {
-  height: 100%;
+  width: 100%;
   padding: 0;
 }

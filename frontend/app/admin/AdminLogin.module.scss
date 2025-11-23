@@ -1,11 +1,13 @@
 @import '@/styles/variables.scss';
 
+// Container
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: $spacing-xl;
 }
 
+// Page title
 .pageTitle {
   font-size: $font-size-2xl;
   font-weight: bold;

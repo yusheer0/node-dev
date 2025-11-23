@@ -1,6 +1,6 @@
-import EditArticleForm from '@/components/EditArticleForm';
-import commonStyles from '../../../common.module.scss';
-import adminStyles from '../../../admin/admin.module.scss';
+import EditArticleForm from '@/components/EditArticleForm/EditArticleForm';
+import commonStyles from '@app/styles/common.module.scss';
+import editStyles from './EditArticleAdmin.module.scss';
 
 interface EditPageProps {
   params: {
@@ -13,8 +13,8 @@ export default function EditArticlePage({ params }: EditPageProps) {
 
   return (
     <div className={commonStyles.page}>
-      <div className={adminStyles.container}>
-        <h1 className={adminStyles.pageTitle}>Редактировать статью</h1>
+      <div className={editStyles.container}>
+        <h1 className={editStyles.pageTitle}>Редактировать статью</h1>
         <EditArticleForm articleId={articleId} />
       </div>
     </div>

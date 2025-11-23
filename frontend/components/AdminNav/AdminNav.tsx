@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getArticlesForAdmin } from '@/lib/api';
-import styles from '@/styles/components/layout.module.scss';
+import styles from './AdminNav.module.scss';
 
 export default function AdminNav() {
   const [isAuth, setIsAuth] = useState(false);

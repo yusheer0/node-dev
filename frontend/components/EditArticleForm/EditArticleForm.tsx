@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getArticleByIdForAdmin, updateArticle, getCategories, Article, Category } from '@/lib/api';
-import styles from '@/styles/components/commentForm.module.scss';
+import styles from './EditArticleForm.module.scss';
 
 interface EditArticleFormProps {
   articleId: number;
@@ -104,68 +104,87 @@ export default function EditArticleForm({ articleId }: EditArticleFormProps) {
   };
 
   if (loading) {
-    return <p>Загрузка статьи...</p>;
+    return (
+      <div className={styles.editArticleForm}>
+        <div className={styles.loading}>Загрузка статьи...</div>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.commentForm}>
+    <form onSubmit={handleSubmit} className={styles.editArticleForm}>
       <h3 className={styles.title}>Редактировать статью</h3>
 
-      <input
-        type="text"
-        name="title"
-        placeholder="Заголовок статьи *"
-        value={formData.title}
-        onChange={handleTitleChange}
-        required
-        className={styles.input}
-      />
+      <div className={styles.formGroup}>
+        <label>Заголовок статьи *</label>
+        <input
+          type="text"
+          name="title"
+          placeholder="Введите заголовок статьи"
+          value={formData.title}
+          onChange={handleTitleChange}
+          required
+          className={styles.input}
+        />
+      </div>
 
-      <input
-        type="text"
-        name="slug"
-        placeholder="URL статьи (slug) *"
-        value={formData.slug}
-        onChange={handleChange}
-        required
-        className={styles.input}
-      />
+      <div className={styles.formGroup}>
+        <label>URL статьи (slug) *</label>
+        <input
+          type="text"
+          name="slug"
+          placeholder="url-stati"
+          value={formData.slug}
+          onChange={handleChange}
+          required
+          className={styles.input}
+        />
+      </div>
 
-      <input
-        type="text"
-        name="excerpt"
-        placeholder="Краткое описание (опционально)"
-        value={formData.excerpt}
-        onChange={handleChange}
-        className={styles.input}
-      />
+      <div className={styles.formGroup}>
+        <label>Краткое описание</label>
+        <input
+          type="text"
+          name="excerpt"
+          placeholder="Краткое описание статьи (опционально)"
+          value={formData.excerpt}
+          onChange={handleChange}
+          className={styles.input}
+        />
+      </div>
 
-      <textarea
-        name="content"
-        placeholder="Содержимое статьи в HTML формате *"
-        value={formData.content}
-        onChange={handleChange}
-        required
-        rows={15}
-        className={styles.textarea}
-      />
+      <div className={styles.formGroup}>
+        <label>Категория</label>
+        <select
+          name="categoryId"
+          value={formData.categoryId || ''}
+          onChange={(e) => setFormData(prev => ({
+            ...prev,
+            categoryId: e.target.value ? parseInt(e.target.value) : undefined
+          }))}
+          className={styles.input}
+        >
+          <option value="">Без категории</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      <select
-        name="categoryId"
-        value={formData.categoryId || ''}
-        onChange={(e) => setFormData(prev => ({
-          ...prev,
-          categoryId: e.target.value ? parseInt(e.target.value) : undefined
-        }))}
-        className={styles.input}
-      >
-        <option value="">Без категории</option>
-        {categories.map((category) => (
-          <option key={category.id} value={category.id}>
-            {category.name}
-          </option>
-        ))}
-      </select>
+      <div className={styles.formGroup}>
+        <label>Содержимое статьи *</label>
+        <textarea
+          name="content"
+          placeholder="Введите содержимое статьи в HTML формате"
+          value={formData.content}
+          onChange={handleChange}
+          required
+          rows={15}
+          className={styles.textarea}
+        />
+      </div>
 
       <label className={styles.checkbox}>
         <input

@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getArticlesForAdmin, deleteArticle, logout, Article } from '@/lib/api';
 import styles from '@/styles/components/articleCard.module.scss';
-import commonStyles from '../app/common.module.scss';
-import adminStyles from '../app/admin/admin.module.scss';
+import commonStyles from '@/app/common.module.scss';
 import homeStyles from '../app/home.module.scss';
+import dashboardStyles from './AdminDashboard.module.scss';
 
 export default function AdminDashboard() {
   const [articles, setArticles] = useState<Article[]>([]);
@@ -63,7 +63,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <div className={commonStyles.page}>
-        <div className={adminStyles.container}>
+        <div className={dashboardStyles.container}>
           <p>Загрузка...</p>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
   if (error) {
     return (
       <div className={commonStyles.page}>
-        <div className={adminStyles.container}>
+        <div className={dashboardStyles.container}>
           <p style={{ color: 'red' }}>{error}</p>
         </div>
       </div>
@@ -82,28 +82,28 @@ export default function AdminDashboard() {
 
   return (
     <div className={commonStyles.page}>
-      <div className={adminStyles.container}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <h1 className={adminStyles.pageTitle}>Админ-панель</h1>
+      <div className={dashboardStyles.container}>
+        <div className={dashboardStyles.header}>
+          <h1 className={dashboardStyles.pageTitle}>Админ-панель</h1>
           <div>
-            <Link href="/create" style={{ marginRight: '1rem' }}>
-              <button style={{ padding: '0.5rem 1rem', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '4px' }}>
+            <Link href="/create">
+              <button className={dashboardStyles.buttonPrimary}>
                 Создать статью
               </button>
             </Link>
-            <Link href="/admin/categories" style={{ marginRight: '1rem' }}>
-              <button style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px' }}>
+            <Link href="/admin/categories">
+              <button className={dashboardStyles.buttonSuccess}>
                 Управление категориями
               </button>
             </Link>
-            <Link href="/admin/comments" style={{ marginRight: '1rem' }}>
-              <button style={{ padding: '0.5rem 1rem', backgroundColor: '#17a2b8', color: 'white', border: 'none', borderRadius: '4px' }}>
+            <Link href="/admin/comments">
+              <button className={dashboardStyles.buttonInfo}>
                 Модерация комментариев
               </button>
             </Link>
             <button
               onClick={handleLogout}
-              style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px' }}
+              className={dashboardStyles.buttonDanger}
             >
               Выйти
             </button>
@@ -112,16 +112,16 @@ export default function AdminDashboard() {
 
         <div className={homeStyles.articlesList}>
           {articles.map((article) => (
-            <article key={article.id} className={styles.articleCard} style={{ position: 'relative' }}>
-              <div style={{ position: 'absolute', top: '1rem', right: '1rem', display: 'flex', gap: '0.5rem' }}>
+            <article key={article.id} className={`${styles.articleCard} ${dashboardStyles.articleCard}`}>
+              <div className={dashboardStyles.articleActions}>
                 <Link href={`/admin/edit/${article.id}`}>
-                  <button style={{ padding: '0.25rem 0.5rem', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.8rem' }}>
+                  <button className={dashboardStyles.articleButtonEdit}>
                     ✏️
                   </button>
                 </Link>
                 <button
                   onClick={() => handleDelete(article.id)}
-                  style={{ padding: '0.25rem 0.5rem', backgroundColor: '#dc3545', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.8rem' }}
+                  className={dashboardStyles.articleButtonDelete}
                 >
                   🗑️
                 </button>
@@ -131,7 +131,7 @@ export default function AdminDashboard() {
                 <h2 className={styles.title}>
                   {article.title}
                   {!article.published && (
-                    <span style={{ color: '#6c757d', fontSize: '0.8rem', marginLeft: '0.5rem' }}>
+                    <span className={dashboardStyles.draftIndicator}>
                       (Не опубликовано)
                     </span>
                   )}

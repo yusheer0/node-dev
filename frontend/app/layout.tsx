@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
 import { Golos_Text } from 'next/font/google'
+import './styles/reset.css'
 import Link from 'next/link'
-import './globals.css'
-import styles from '@/styles/components/layout.module.scss'
-import AdminNav from '@/components/AdminNav'
+import styles from '@/app/styles/layout.module.scss'
+import commonStyles from '@/app/styles/common.module.scss'
+import AdminNav from '@/components/AdminNav/AdminNav'
 
 const golos = Golos_Text({
   subsets: ['latin', 'cyrillic'],
@@ -24,20 +25,20 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${golos.className} ${styles.layout}`}>
         <header className={styles.header}>
-          <div className={styles.headerContent}>
-            <Link href="/" className={styles.titleLink}>
-              <h1 className={styles.title}>node.dev</h1>
-            </Link>
-            <nav className={styles.nav}>
-              <Link href="/about" className={styles.navLink}>О проекте</Link>
-              <AdminNav />
-            </nav>
+          <div className={commonStyles.blockContainer}>
+            <div className={styles.headerContent}>
+              <Link href="/" className={styles.titleLink}>
+                <h1 className={styles.title}>node.dev</h1>
+              </Link>
+              <nav className={styles.nav}>
+                <Link href="/about" className={styles.navLink}>О проекте</Link>
+                <AdminNav />
+              </nav>
+            </div>
           </div>
         </header>
         <main className={styles.main}>
-          <div className={styles.container}>
-            {children}
-          </div>
+          {children}
         </main>
       </body>
     </html>

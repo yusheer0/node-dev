@@ -1,0 +1,116 @@
+@import '@/styles/variables.scss';
+
+.loginForm {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: $spacing-xl;
+  background-color: $color-background;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #dc3545;
+
+  .title {
+    font-size: $font-size-xl;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+
+    &::before {
+      content: '🔒';
+      font-size: 1.5em;
+    }
+  }
+
+  .formGroup {
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: block;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $color-text-primary;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  .input {
+    width: 100%;
+    padding: $spacing-md;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    border: 2px solid #dee2e6;
+    border-radius: 4px;
+    background-color: $color-background;
+    color: $color-text-primary;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #dc3545;
+      box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+    }
+
+    &::placeholder {
+      color: $color-text-secondary;
+    }
+
+    &[type="password"] {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 2px;
+    }
+  }
+
+  .error {
+    color: #dc3545;
+    font-size: $font-size-sm;
+    font-weight: 500;
+    margin-bottom: $spacing-md;
+    padding: $spacing-sm;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 4px;
+    border-left: 4px solid #dc3545;
+  }
+
+  .submitButton {
+    width: 100%;
+    padding: $spacing-md $spacing-xl;
+    background-color: #dc3545;
+    color: white;
+    font-size: $font-size-base;
+    font-weight: bold;
+    border: 2px solid #dc3545;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #c82333;
+      border-color: #c82333;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin: $spacing-md;
+    padding: $spacing-lg;
+
+    .title {
+      font-size: $font-size-lg;
+    }
+  }
+}

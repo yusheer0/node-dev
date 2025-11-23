@@ -1,5 +1,5 @@
 services:
-  # PostgreSQL Database
+  # PostgreSQL
   postgres:
     image: postgres:13
     container_name: blog-postgres
@@ -20,7 +20,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # Backend API (NestJS)
+  # Nest
   backend:
     build:
       context: ./backend
@@ -48,7 +48,7 @@ services:
       retries: 3
       start_period: 40s
 
-  # Frontend (Next.js)
+  # Next
   frontend:
     build:
       context: ./frontend

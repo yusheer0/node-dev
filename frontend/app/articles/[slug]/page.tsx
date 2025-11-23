@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { getArticleBySlug, getArticles } from '@/lib/api';
-import CommentForm from '@/components/CommentForm';
-import CommentsList from '@/components/CommentsList';
-import ShareButtons from '@/components/ShareButtons';
+import CommentForm from '@/components/CommentForm/CommentForm';
+import CommentsList from '@/components/CommentsList/CommentsList';
+import ShareButtons from '@/components/ShareButtons/ShareButtons';
 import articleStyles from '../article.module.scss';
 
 interface ArticlePageProps {

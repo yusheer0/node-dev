@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { login } from '@/lib/api';
-import styles from '@/styles/components/commentForm.module.scss';
+import styles from './LoginForm.module.scss';
 
 export default function LoginForm() {
   const [password, setPassword] = useState('');
@@ -28,19 +28,22 @@ export default function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.commentForm}>
+    <form onSubmit={handleSubmit} className={styles.loginForm}>
       <h3 className={styles.title}>Вход в админ-панель</h3>
 
-      <input
-        type="password"
-        placeholder="Пароль администратора"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        className={styles.input}
-      />
+      <div className={styles.formGroup}>
+        <label>Пароль администратора</label>
+        <input
+          type="password"
+          placeholder="Введите пароль"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className={styles.input}
+        />
+      </div>
 
-      {error && <div style={{ color: 'red', marginBottom: '1rem' }}>{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
 
       <button
         type="submit"

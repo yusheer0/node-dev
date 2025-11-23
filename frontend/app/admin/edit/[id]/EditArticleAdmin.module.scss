@@ -1,0 +1,17 @@
+@import '@/styles/variables.scss';
+
+// Container
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: $spacing-xl;
+}
+
+// Page title
+.pageTitle {
+  font-size: $font-size-2xl;
+  font-weight: bold;
+  color: $color-text-primary;
+  margin: 0 0 $spacing-xl 0;
+  text-align: center;
+}
