@@ -1,6 +1,4 @@
-# Yusheero Blog
-
-Блог-платформа с использованием NestJS (backend) и Next.js (frontend).
+# NODE.DEV
 
 ## Запуск с помощью Docker
 
