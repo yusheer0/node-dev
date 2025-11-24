@@ -1,4 +1,4 @@
-import commonStyles from '../common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import aboutStyles from './about.module.scss';
 
 export const metadata = {
@@ -9,13 +9,13 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className={commonStyles.page}>
-      <div className={aboutStyles.aboutPage}>
-        <section className={aboutStyles.aboutSection}>
+      <div className={commonStyles.blockContainer}>
+        <div className={commonStyles.pageWrapper}>
           <div className={aboutStyles.aboutContent}>
-            <p>
+            <h1 className={aboutStyles.mainTitle}>
               <strong>node.dev</strong> - это база знаний backend разработчика на NodeJs.
               Не очередной сервис для прохождения собеседований, а полноценный профиль который тебе стоит закрыть
-            </p>
+            </h1>
 
             <h2>Что вы найдете в блоге:</h2>
             <ul>
@@ -37,7 +37,7 @@ export default function AboutPage() {
               <li><a href="mailto:contact@example.com">Реклама</a></li>
             </ul>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );

@@ -35,3 +35,5 @@ export default function Categories({ categories }: CategoriesProps) {
     </div>
   );
 }
+
+

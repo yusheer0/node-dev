@@ -4,3 +4,23 @@
     width: 100%;
     border-bottom: 1px solid $color-border;
 }
+
+.emptyPage {
+    border-left: 1px solid $color-border;
+    border-right: 1px solid $color-border;
+    font-size: 32px;
+    font-weight: 500;
+    background-color: #070707;
+    color: #ff3939;
+    width: 100%;
+    height: calc(100vh - 81px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blockContainer {
+    height: 100%;
+    width: 1200px;
+    margin: 0 auto;
+}

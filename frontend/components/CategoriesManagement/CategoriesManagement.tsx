@@ -9,7 +9,7 @@ import {
   deleteCategory,
   Category
 } from '@/lib/api';
-import styles from '@/styles/components/categoriesManagement.module.scss';
+import styles from './CategoriesManagement.module.scss';
 
 export default function CategoriesManagement() {
   const [categories, setCategories] = useState<Category[]>([]);

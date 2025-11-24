@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getArticlesForAdmin, deleteArticle, logout, Article } from '@/lib/api';
-import styles from '@/styles/components/articleCard.module.scss';
-import commonStyles from '@/app/common.module.scss';
-import homeStyles from '../app/home.module.scss';
+import styles from '@/components/ArticleCard/ArticleCard.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
+import homeStyles from '@/app/home.module.scss';
 import dashboardStyles from './AdminDashboard.module.scss';
 
 export default function AdminDashboard() {

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { getArticlesForAdmin } from '@/lib/api';
 import styles from './AdminNav.module.scss';
+import { UserStar } from 'lucide-react';
 
 export default function AdminNav() {
   const [isAuth, setIsAuth] = useState(false);
@@ -28,7 +29,7 @@ export default function AdminNav() {
 
   return (
     <Link href="/admin/dashboard" className={styles.navLink}>
-      Админ-панель
+      <UserStar height={28} width={28} strokeWidth={1.5} />
     </Link>
   );
 }

@@ -5,52 +5,6 @@
   color: $color-text-primary;
 }
 
-.header {
-  height: 80px;
-  border-bottom: $border-width solid $color-border;
-
-  .headerContent {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .titleLink {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .title {
-      font-size: $font-size-xl;
-      font-weight: bold;
-      color: #ff3939;
-      margin: 0;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: $color-accent;
-      }
-    }
-
-    .nav {
-      display: flex;
-      gap: $spacing-lg;
-
-      .navLink {
-        color: $color-text-secondary;
-        text-decoration: none;
-        font-size: $font-size-base;
-        transition: color 0.2s ease;
-
-        &:hover {
-          color: $color-accent;
-        }
-      }
-    }
-  }
-}
-
 .main {
   width: 100%;
   padding: 0;

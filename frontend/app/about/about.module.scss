@@ -1,63 +1,52 @@
-@import '@/styles/variables.scss';
-
-.aboutPage {
+@import '@/app/styles/variables.scss';
+.aboutContent {
   height: 100%;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: #070707;
 
-  .aboutSection {
-    max-width: 1200px;
-    margin: 0 auto;
-    border-left: 1px solid $color-border;
-    border-right: 1px solid $color-border;
+  .mainTitle {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
 
-    .aboutTitle {
-      font-size: $font-size-3xl;
-      font-weight: bold;
-      color: $color-text-primary;
-      margin: 0 0 $spacing-2xl 0;
-      text-align: center;
-    }
+  p {
+    margin: 0;
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+  }
 
-    .aboutContent {
-      width: 100%;
-      line-height: $line-height-relaxed;
-      padding: $spacing-md;
+  h2 {
+    font-size: $font-size-xl;
+    font-weight: 500;
+    color: $color-text-primary;
+  }
 
-      p {
-        margin: 0;
-        font-size: $font-size-base;
-        color: $color-text-secondary;
-      }
+  ul {
+    margin-bottom: $spacing-lg;
+    text-decoration: none;
 
-      h2 {
-        font-size: $font-size-xl;
-        font-weight: 500;
-        color: $color-text-primary;
-      }
+    li {
+      margin-bottom: $spacing-sm;
+      color: $color-text-secondary;
+      list-style: none;
 
-      ul {
-        margin-bottom: $spacing-lg;
+      a {
+        color: $color-primary;
         text-decoration: none;
 
-        li {
-          margin-bottom: $spacing-sm;
-          color: $color-text-secondary;
-          list-style: none;
-
-          a {
-            color: $color-primary;
-            text-decoration: none;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
+        &:hover {
+          text-decoration: underline;
         }
       }
-
-      strong {
-        color: $color-text-primary;
-        font-weight: bold;
-      }
     }
+  }
+
+  strong {
+    color: $color-text-primary;
+    font-weight: bold;
   }
 }

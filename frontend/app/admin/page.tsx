@@ -1,5 +1,5 @@
 import LoginForm from '@/components/LoginForm/LoginForm';
-import commonStyles from '../common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import loginStyles from './AdminLogin.module.scss';
 
 export default function AdminLoginPage() {

@@ -23,3 +23,5 @@ export default function TopArticles({ articles }: TopArticlesProps) {
     </div>
   );
 }
+
+

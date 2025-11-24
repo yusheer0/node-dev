@@ -1,5 +1,5 @@
 import CategoriesManagement from '@/components/CategoriesManagement/CategoriesManagement';
-import commonStyles from '@app/styles/common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import categoriesStyles from './CategoriesAdmin.module.scss';
 
 export default function CategoriesAdminPage() {

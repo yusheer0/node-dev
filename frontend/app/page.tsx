@@ -1,4 +1,4 @@
-import { getTopArticles, getArticles, getCategories, Article, Category } from '@/lib/api';
+import { getTopArticles, getCategories, Article, Category } from '@/lib/api';
 import TopArticles from '@/components/TopArticles/TopArticles';
 import Categories from '@/components/Categories/Categories';
 import commonStyles from '@/app/styles/common.module.scss';
@@ -9,7 +9,6 @@ export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   let topArticles: Article[] = [];
-  let recentArticles: Article[] = [];
   let categories: Category[] = [];
 
   try {
@@ -17,34 +16,31 @@ export default async function Home() {
     const topData = await getTopArticles(3);
     topArticles = topData.articles || [];
 
-    // Загружаем последние статьи (кроме топовых)
-    const recentData = await getArticles();
-    recentArticles = (recentData.articles || []).filter(
-      article => !topArticles.some(top => top.id === article.id)
-    );
-
     // Загружаем категории
     categories = await getCategories();
   } catch (error) {
     console.error('Ошибка при загрузке данных:', error);
     topArticles = [];
-    recentArticles = [];
     categories = [];
   }
 
   return (
     <div className={commonStyles.page}>
-      {/* Топ статей */}
       <div className={commonStyles.blockContainer}>
-        <div className={homeStyles.blockWrapper}>
-          <TopArticles articles={topArticles} />
-        </div>
-      </div>
+        <div className={commonStyles.pageWrapper}>
+          {topArticles && (
+            <TopArticles articles={topArticles} />
+          )}
 
-      {/* Категории */}
-      <div className={commonStyles.blockContainer}>
-        <div className={homeStyles.blockWrapper}>
-          <Categories categories={categories} />
+          {categories.length > 0 && (
+            <Categories categories={categories} />
+          )}
+
+          {(categories.length === 0 && topArticles.length === 0) && (
+            <div className={commonStyles.blockContainer}>
+              <div className={homeStyles.emptyPage}>Нет данных</div>
+            </div>
+          )}
         </div>
       </div>
     </div>
