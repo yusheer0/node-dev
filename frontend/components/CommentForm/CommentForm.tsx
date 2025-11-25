@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createComment } from '@/lib/api';
-import styles from './CommentForm.module.scss';
+import styles from './СommentForm.module.scss';
 
 interface CommentFormProps {
   articleId: number;

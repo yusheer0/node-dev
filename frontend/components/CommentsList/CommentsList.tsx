@@ -1,5 +1,5 @@
 import { Comment } from '@/lib/api';
-import styles from '@/styles/components/commentsList.module.scss';
+import styles from './СommentsList.module.scss';
 
 interface CommentsListProps {
   comments: Comment[];

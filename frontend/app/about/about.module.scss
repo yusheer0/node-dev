@@ -1,52 +1,88 @@
 @import '@/app/styles/variables.scss';
 .aboutContent {
   height: 100%;
-  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
   background-color: #070707;
 
-  .mainTitle {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.4;
+  .aboutHeader {
+    text-align: center;
+    padding: 24px;
+    border-bottom: 1px solid $color-border;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
   }
 
-  p {
-    margin: 0;
-    font-size: $font-size-base;
-    color: $color-text-secondary;
-  }
+  .aboutMain {
+    padding: 24px;
+    border-bottom: 1px solid $color-border;
 
-  h2 {
-    font-size: $font-size-xl;
-    font-weight: 500;
-    color: $color-text-primary;
-  }
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      color: #ff3939;
+      margin-bottom: 12px;
+    }
 
-  ul {
-    margin-bottom: $spacing-lg;
-    text-decoration: none;
-
-    li {
-      margin-bottom: $spacing-sm;
-      color: $color-text-secondary;
-      list-style: none;
-
-      a {
-        color: $color-primary;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
+    ul { 
+      li {
+        line-height: 1.6;
+        color: $color-text-secondary;
+        list-style: none;
+        font-size: 14px;
+        font-weight: 400;
+  
+        a {
+          color: $color-primary;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
   }
 
-  strong {
-    color: $color-text-primary;
-    font-weight: bold;
+  .aboutFooter {
+    padding: 24px;
+    border-bottom: 1px solid $color-border;
+
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      color: #ff3939;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-text-secondary;
+      margin-bottom: 12px;
+    }
+
+    ul { 
+      li {
+        line-height: 1.6;
+        color: $color-text-secondary;
+        list-style: none;
+        font-size: 14px;
+        font-weight: 400;
+  
+        a {
+          color: $color-primary;
+          text-decoration: none;
+  
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
   }
 }

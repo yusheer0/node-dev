@@ -1,15 +1,9 @@
 @import '@/app/styles/variables.scss';
 
-.blockContainerArticles {
-  width: 100%;
-  border-bottom: 1px solid $color-border;
-}
-
 .topArticles {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  border-right: 1px solid $color-border;
-  border-left: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
 
   .topArticlesGrid {
     display: grid;

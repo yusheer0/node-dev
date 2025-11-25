@@ -26,23 +26,19 @@ export default async function Home() {
 
   return (
     <div className={commonStyles.page}>
-      <div className={commonStyles.blockContainer}>
-        <div className={commonStyles.pageWrapper}>
-          {topArticles && (
-            <TopArticles articles={topArticles} />
-          )}
+      {topArticles && (
+        <TopArticles articles={topArticles} />
+      )}
 
-          {categories.length > 0 && (
-            <Categories categories={categories} />
-          )}
+      {categories.length > 0 && (
+        <Categories categories={categories} />
+      )}
 
-          {(categories.length === 0 && topArticles.length === 0) && (
-            <div className={commonStyles.blockContainer}>
-              <div className={homeStyles.emptyPage}>Нет данных</div>
-            </div>
-          )}
+      {(categories.length === 0 && topArticles.length === 0) && (
+        <div className={commonStyles.blockContainer}>
+          <div className={homeStyles.emptyPage}>Нет данных</div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

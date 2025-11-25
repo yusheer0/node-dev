@@ -1,10 +1,5 @@
 @import './styles/variables.scss';
 
-.blockWrapper {
-    width: 100%;
-    border-bottom: 1px solid $color-border;
-}
-
 .emptyPage {
     border-left: 1px solid $color-border;
     border-right: 1px solid $color-border;
@@ -17,10 +12,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.blockContainer {
-    height: 100%;
-    width: 1200px;
-    margin: 0 auto;
 }

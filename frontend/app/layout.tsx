@@ -26,7 +26,11 @@ export default function RootLayout({
         <ParticlesBackground />
         <Header />
         <main className={styles.main}>
-          {children}
+          <div className={styles.mainContainer}>
+            <div className={styles.mainWrapper}>
+            {children}
+            </div>
+          </div>
         </main>
       </body>
     </html>

@@ -1,16 +1,9 @@
 @import '@/app/styles/variables.scss';
 
-.blockContainerCategories {
-  width: 100%;
-  border-top: 1px solid $color-border;
-  border-bottom: 1px solid $color-border;
-}
-
 .categories {
-  max-width: 1200px;
+  border-top: 1px solid $color-border;
+  width: 100%;
   margin: 0 auto;
-  border-right: 1px solid $color-border;
-  border-left: 1px solid $color-border;
 
   .categoriesGrid {
     display: grid;
