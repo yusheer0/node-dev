@@ -42,7 +42,7 @@ export interface Category {
 }
 
 // Функция для обработки ошибок fetch
-async function fetchWithErrorHandling(url: string, options?: RequestInit, requireAuth: boolean = false) {
+async function fetchWithErrorHandling(url: string, options?: RequestInit, requireAuth: boolean = false, parseJson: boolean = true) {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     ...(options?.headers as Record<string, string>),
@@ -68,7 +68,7 @@ async function fetchWithErrorHandling(url: string, options?: RequestInit, requir
     throw new Error(`HTTP error! status: ${res.status}`);
   }
 
-  return res.json();
+  return parseJson ? res.json() : undefined;
 }
 
 export async function getArticles(): Promise<{ articles: Article[]; total: number }> {
@@ -256,7 +256,7 @@ export async function updateArticle(id: number, articleData: {
 export async function deleteArticle(id: number): Promise<void> {
   await fetchWithErrorHandling(`${API_BASE_URL}/articles/${id}`, {
     method: 'DELETE',
-  }, true);
+  }, true, false);
 }
 
 export async function createComment(articleId: number, commentData: {
@@ -305,7 +305,7 @@ export async function markCommentAsSpam(commentId: number): Promise<Comment> {
 export async function deleteComment(commentId: number): Promise<void> {
   return fetchWithErrorHandling(`${API_BASE_URL}/articles/0/comments/admin/${commentId}`, {
     method: 'DELETE',
-  }, true);
+  }, true, false);
 }
 
 export async function createCategory(categoryData: {
@@ -335,5 +335,5 @@ export async function updateCategory(id: number, categoryData: {
 export async function deleteCategory(id: number): Promise<void> {
   return fetchWithErrorHandling(`${API_BASE_URL}/categories/${id}`, {
     method: 'DELETE',
-  }, true);
+  }, true, false);
 }

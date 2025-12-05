@@ -1,24 +1,24 @@
 @import '@/app/styles/variables.scss';
 
 .articlePage {
-  border-right: $border-width solid $color-border;
-  border-left: $border-width solid $color-border;
-
   .article {
     border-bottom: $border-width solid $color-border;
-    padding: $spacing-md;
+
+    .articleHeader {
+      border-bottom: 1px solid $color-border;
+      padding: 36px;
+    }
 
     .articleTitle {
       font-size: $font-size-2xl;
       font-weight: bold;
       color: $color-text-primary;
-      margin: 0 0 $spacing-md 0;
+      margin-bottom: 24px;
     }
 
     .articleMeta {
       color: $color-text-muted;
       font-size: $font-size-sm;
-      margin-bottom: $spacing-lg;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -32,8 +32,23 @@
       color: $color-text-secondary;
       line-height: $line-height-relaxed;
       font-size: $font-size-base;
+      padding: 36px;
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 32px;
+        color: #ff3939;
+      }
+
+      h2 {
+        font-size: 24px;
+        color: #ffffff;
+      }
 
       p {
+        color: #6e6e6e;
         margin-bottom: $spacing-md;
 
         &:last-child {
@@ -45,13 +60,15 @@
 
   .commentsSection {
     border-bottom: $border-width solid $color-border;
-    padding: 0;
+
+    .commentSectionHeader {
+      padding: 36px;
+    }
 
     .commentsTitle {
       font-size: $font-size-2xl;
       font-weight: bold;
       color: $color-text-primary;
-      margin: 0 0 $spacing-lg 0;
     }
   }
 }

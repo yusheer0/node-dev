@@ -82,28 +82,27 @@ export default function AdminDashboard() {
 
   return (
     <div className={commonStyles.page}>
-      <div className={dashboardStyles.container}>
         <div className={dashboardStyles.header}>
           <h1 className={dashboardStyles.pageTitle}>Админ-панель</h1>
           <div>
             <Link href="/create">
-              <button className={dashboardStyles.buttonPrimary}>
+              <button className={dashboardStyles.button}>
                 Создать статью
               </button>
             </Link>
             <Link href="/admin/categories">
-              <button className={dashboardStyles.buttonSuccess}>
+              <button className={dashboardStyles.button}>
                 Управление категориями
               </button>
             </Link>
             <Link href="/admin/comments">
-              <button className={dashboardStyles.buttonInfo}>
+              <button className={dashboardStyles.button}>
                 Модерация комментариев
               </button>
             </Link>
             <button
               onClick={handleLogout}
-              className={dashboardStyles.buttonDanger}
+              className={dashboardStyles.button}
             >
               Выйти
             </button>
@@ -174,7 +173,6 @@ export default function AdminDashboard() {
             </div>
           )}
         </div>
-      </div>
     </div>
   );
 }

@@ -8,7 +8,7 @@ import {
   Param,
   UseGuards,
   Req,
-  HttpCode
+  HttpCode,
 } from '@nestjs/common';
 import { ThrottlerGuard } from '@nestjs/throttler';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -74,8 +74,9 @@ export class CommentsController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @HttpCode(204)
   @Delete('admin/:id')
   async remove(@Param('id') id: number) {
-    return await this.commentsService.remove(id);
+    await this.commentsService.remove(id);
   }
 }

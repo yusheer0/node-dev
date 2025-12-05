@@ -1,5 +1,5 @@
 import EditArticleForm from '@/components/EditArticleForm/EditArticleForm';
-import commonStyles from '@app/styles/common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import editStyles from './EditArticleAdmin.module.scss';
 
 interface EditPageProps {

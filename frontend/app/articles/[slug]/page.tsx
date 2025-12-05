@@ -29,28 +29,30 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   return (
     <div className={articleStyles.articlePage}>
       <article className={articleStyles.article}>
-        <h1 className={articleStyles.articleTitle}>
-          {article.title}
-        </h1>
+        <div className={articleStyles.articleHeader}>
+          <h1 className={articleStyles.articleTitle}>
+            {article.title}
+          </h1>
 
-        <div className={articleStyles.articleMeta}>
-          <time dateTime={article.createdAt}>
-            {new Date(article.createdAt).toLocaleDateString('ru-RU', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </time>
-          <span className={articleStyles.articleViews}>
-            {article.views} просмотров
-          </span>
+          <div className={articleStyles.articleMeta}>
+            <time dateTime={article.createdAt}>
+              {new Date(article.createdAt).toLocaleDateString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+              })}
+            </time>
+            <span className={articleStyles.articleViews}>
+              {article.views} просмотров
+            </span>
+          </div>
         </div>
 
-        <ShareButtons
+        {/* <ShareButtons
           title={article.title}
           url={`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001'}/articles/${article.slug}`}
           description={article.excerpt}
-        />
+        /> */}
 
         <div className={articleStyles.articleContent}>
           <div
@@ -60,9 +62,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       </article>
 
       <section className={articleStyles.commentsSection}>
-        <h2 className={articleStyles.commentsTitle}>
-          Комментарии {article.comments && `(${article.comments.length})`}
-        </h2>
+        <div className={articleStyles.commentSectionHeader}>
+          <h2 className={articleStyles.commentsTitle}>
+            Комментарии
+          </h2>
+        </div>
 
         <CommentForm articleId={article.id} />
         <CommentsList comments={article.comments || []} />

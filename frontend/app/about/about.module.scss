@@ -7,13 +7,14 @@
 
   .aboutHeader {
     text-align: center;
-    padding: 24px;
+    padding: 32px;
     border-bottom: 1px solid $color-border;
 
     h1 {
-      font-size: 24px;
-      font-weight: 500;
+      font-size: 32px;
+      font-weight: 700;
       line-height: 1.4;
+      letter-spacing: -0.5px;
     }
   }
 
@@ -22,18 +23,18 @@
     border-bottom: 1px solid $color-border;
 
     h2 {
-      font-size: 24px;
-      font-weight: 500;
-      color: #ff3939;
-      margin-bottom: 12px;
+      font-size: 32px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 24px;
     }
 
     ul { 
       li {
-        line-height: 1.6;
-        color: $color-text-secondary;
+        line-height: 1.7;
+        color: #656565;
         list-style: none;
-        font-size: 14px;
+        font-size: 16px;
         font-weight: 400;
   
         a {
@@ -53,17 +54,17 @@
     border-bottom: 1px solid $color-border;
 
     h2 {
-      font-size: 24px;
-      font-weight: 500;
-      color: #ff3939;
-      margin-bottom: 12px;
+      font-size: 32px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 24px;
     }
 
     p {
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400;
-      color: $color-text-secondary;
-      margin-bottom: 12px;
+      color: #656565;
+      margin-bottom: 24px;
     }
 
     ul { 

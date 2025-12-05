@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { createComment } from '@/lib/api';
+import Input from '@/components/shared/Input/Input';
+import Textarea from '@/components/shared/Textarea/Textarea';
+import Button from '@/components/shared/Button/Button';
 import styles from './СommentForm.module.scss';
 
 interface CommentFormProps {
@@ -46,47 +49,44 @@ export default function CommentForm({ articleId }: CommentFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.commentForm}>
-      <h3 className={styles.title}>Добавить комментарий</h3>
-
       <div className={styles.formGrid}>
-        <input
+        <Input
           type="text"
           name="authorName"
           placeholder="Ваше имя *"
           value={formData.authorName}
           onChange={handleChange}
           required
-          className={styles.input}
         />
 
-        <input
+        <Input
           type="email"
           name="authorEmail"
           placeholder="Ваш email *"
           value={formData.authorEmail}
           onChange={handleChange}
           required
-          className={styles.input}
         />
       </div>
 
-      <textarea
+      <Textarea
         name="content"
         placeholder="Ваш комментарий *"
         value={formData.content}
         onChange={handleChange}
         required
         rows={4}
-        className={styles.textarea}
       />
 
-      <button
+      <Button
         type="submit"
-        disabled={isSubmitting}
-        className={styles.submitButton}
+        variant="primary"
+        size="md"
+        isLoading={isSubmitting}
+        loadingText="Отправка..."
       >
-        {isSubmitting ? 'Отправка...' : 'Отправить комментарий'}
-      </button>
+        Отправить комментарий
+      </Button>
     </form>
   );
 }

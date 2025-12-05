@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getCategoryBySlug, getArticlesByCategory, Category, Article } from '@/lib/api';
 import ArticleCard from '@/components/ArticleCard/ArticleCard';
-import commonStyles from '@app/styles/common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import categoryStyles from '../category.module.scss';
 
 interface CategoryPageProps {

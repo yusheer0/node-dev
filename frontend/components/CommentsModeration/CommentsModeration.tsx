@@ -11,7 +11,7 @@ import {
   deleteComment,
   Comment
 } from '@/lib/api';
-import styles from '@/styles/components/commentsModeration.module.scss';
+import styles from './СommentsModeration.module.scss';
 
 export default function CommentsModeration() {
   const [pendingComments, setPendingComments] = useState<Comment[]>([]);

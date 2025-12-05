@@ -3,6 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { createArticle, getCategories, Category } from '@/lib/api';
+import Input from '@/components/shared/Input/Input';
+import Textarea from '@/components/shared/Textarea/Textarea';
+import Button from '@/components/shared/Button/Button';
 import styles from './ArticleForm.module.scss';
 
 export default function ArticleForm() {
@@ -83,76 +86,74 @@ export default function ArticleForm() {
 
   return (
     <form onSubmit={handleSubmit} className={styles.articleForm}>
-      <h3 className={styles.title}>Создать статью</h3>
+      <div className={styles.formGrid}>
+        <div className={styles.formGroup}>
+          <label>Заголовок статьи *</label>
+          <Input
+            type="text"
+            name="title"
+            placeholder="Введите заголовок статьи"
+            value={formData.title}
+            onChange={handleTitleChange}
+            required
+          />
+        </div>
 
-      <div className={styles.formGroup}>
-        <label>Заголовок статьи *</label>
-        <input
-          type="text"
-          name="title"
-          placeholder="Введите заголовок статьи"
-          value={formData.title}
-          onChange={handleTitleChange}
-          required
-          className={styles.input}
-        />
+        <div className={styles.formGroup}>
+          <label>URL статьи (slug) *</label>
+          <Input
+            type="text"
+            name="slug"
+            placeholder="url-stati"
+            value={formData.slug}
+            onChange={handleChange}
+            required
+          />
+        </div>
       </div>
 
-      <div className={styles.formGroup}>
-        <label>URL статьи (slug) *</label>
-        <input
-          type="text"
-          name="slug"
-          placeholder="url-stati"
-          value={formData.slug}
-          onChange={handleChange}
-          required
-          className={styles.input}
-        />
-      </div>
+      <div className={styles.formGrid}>
+        <div className={styles.formGroup}>
+          <label>Краткое описание</label>
+          <Input
+            type="text"
+            name="excerpt"
+            placeholder="Краткое описание статьи (опционально)"
+            value={formData.excerpt}
+            onChange={handleChange}
+          />
+        </div>
 
-      <div className={styles.formGroup}>
-        <label>Краткое описание</label>
-        <input
-          type="text"
-          name="excerpt"
-          placeholder="Краткое описание статьи (опционально)"
-          value={formData.excerpt}
-          onChange={handleChange}
-          className={styles.input}
-        />
-      </div>
-
-      <div className={styles.formGroup}>
-        <label>Категория</label>
-        <select
-          name="categoryId"
-          value={formData.categoryId || ''}
-          onChange={(e) => setFormData(prev => ({
-            ...prev,
-            categoryId: e.target.value ? parseInt(e.target.value) : undefined
-          }))}
-          className={styles.input}
-        >
-          <option value="">Без категории</option>
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.name}
-            </option>
-          ))}
-        </select>
+        <div className={styles.formGroup}>
+          <label>Категория</label>
+          <select
+            name="categoryId"
+            value={formData.categoryId || ''}
+            onChange={(e) => setFormData(prev => ({
+              ...prev,
+              categoryId: e.target.value ? parseInt(e.target.value) : undefined
+            }))}
+            className={styles.select}
+          >
+            <option value="">Без категории</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className={styles.formGroup}>
         <label>Содержимое статьи *</label>
-        <textarea
+        <Textarea
           name="content"
           placeholder="Введите содержимое статьи в HTML формате"
           value={formData.content}
           onChange={handleChange}
           required
           rows={15}
-          className={styles.textarea}
         />
       </div>
 
@@ -166,13 +167,15 @@ export default function ArticleForm() {
         Опубликовать статью
       </label>
 
-      <button
+      <Button
         type="submit"
-        disabled={isSubmitting}
-        className={styles.submitButton}
+        variant="primary"
+        size="md"
+        isLoading={isSubmitting}
+        loadingText="Создание..."
       >
-        {isSubmitting ? 'Создание...' : 'Создать статью'}
-      </button>
+        Создать статью
+      </Button>
     </form>
   );
 }

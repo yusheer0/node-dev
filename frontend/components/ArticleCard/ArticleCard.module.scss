@@ -11,7 +11,7 @@
   }
 
   .articleLink {
-    min-height: 320px;
+    height: 100%;
     padding: $spacing-md;
     text-decoration: none;
     color: $color-text-primary;
@@ -19,21 +19,22 @@
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .title {
-    font-size: $font-size-lg;
+    font-size: 24px;
     font-weight: bold;
     color: $color-text-primary;
-    margin: 0 0 $spacing-xs 0;
+    margin-bottom: 14px;
     transition: color 0.2s ease;
   }
 
   .excerpt {
     color: $color-text-secondary;
-    line-height: $line-height-relaxed;
-    font-size: $font-size-base;
+    line-height: 1.4;
+    font-size: 16px;
+    margin-bottom: 64px;
   }
 
   .meta {
@@ -43,16 +44,18 @@
     font-size: $font-size-sm;
     color: $color-text-muted;
     flex-direction: column;
-    gap: $spacing-xs;
+    gap: 12px;
 
     .date {
       margin: 0;
     }
 
     .stats {
+      width: 100%;
       display: flex;
-      gap: $spacing-md;
+      gap: 24px;
       align-items: center;
+      justify-content: flex-start;
 
       .views,
       .comments {

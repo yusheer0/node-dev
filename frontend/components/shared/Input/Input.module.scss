@@ -1,0 +1,42 @@
+@import '@/app/styles/variables.scss';
+
+.input {
+  min-width: 440px;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  font-family: $font-family-base;
+  color: $color-text-primary;
+  background-color: transparent;
+  border: $border-width solid $color-border;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    box-shadow: 0 0 0 2px rgba($color-accent, 0.1);
+  }
+
+  &::placeholder {
+    color: $color-text-secondary;
+  }
+
+  &:hover:not(:focus) {
+    border-color: $color-hover;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: $color-hover;
+  }
+}
+
+.error {
+  border-color: #ff4757;
+
+  &:focus {
+    border-color: #ff4757;
+    box-shadow: 0 0 0 2px rgba(#ff4757, 0.1);
+  }
+}

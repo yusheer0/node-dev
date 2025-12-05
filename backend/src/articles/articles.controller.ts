@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete, Body, Param, Query, UseGuards, HttpCode } from '@nestjs/common';
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
@@ -77,13 +77,14 @@ export class ArticlesController {
 
   /** Удаление статьи (защищено) **/
   @UseGuards(JwtAuthGuard)
+  @HttpCode(204)
   @Delete(':id')
   async remove(@Param('id') id: string) {
     const articleId = parseInt(id, 10);
     if (isNaN(articleId)) {
       throw new Error('Invalid article ID');
     }
-    return await this.articlesService.remove(articleId);
+    await this.articlesService.remove(articleId);
   }
 
   /** Получение всех статей для админа (включая неопубликованные, защищено) **/

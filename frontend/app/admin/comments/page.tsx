@@ -1,5 +1,5 @@
 import CommentsModeration from '@/components/CommentsModeration/CommentsModeration';
-import commonStyles from '@app/styles/common.module.scss';
+import commonStyles from '@/app/styles/common.module.scss';
 import commentsStyles from './CommentsAdmin.module.scss';
 
 export default function CommentsAdminPage() {

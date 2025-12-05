@@ -1,12 +1,9 @@
 @import '@/app/styles/variables.scss';
 
 .articleForm {
-  max-width: 800px;
-  margin: 0 auto;
   padding: $spacing-xl;
   background-color: $color-background;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   .title {
     font-size: $font-size-xl;
@@ -16,50 +13,52 @@
     text-align: center;
   }
 
-  .formGroup {
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-lg;
     margin-bottom: $spacing-lg;
 
-    label {
-      display: block;
-      font-size: $font-size-sm;
-      font-weight: 500;
-      color: $color-text-primary;
-      margin-bottom: $spacing-xs;
+    .formGroup {
+      margin-bottom: 0;
     }
   }
 
-  .input,
-  .textarea,
-  select {
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+    margin-bottom: $spacing-lg;
+
+    label {
+      display: inline-block;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      color: $color-text-primary;
+    }
+  }
+
+  .select {
     width: 100%;
-    padding: $spacing-md;
+    padding: $spacing-sm $spacing-md;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    border: $border-width solid $color-border;
-    border-radius: 4px;
-    background-color: $color-background;
+    font-family: $font-family-base;
     color: $color-text-primary;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: transparent;
+    border: $border-width solid $color-border;
+    cursor: pointer;
+    transition: all 0.2s ease;
 
     &:focus {
       outline: none;
       border-color: $color-accent;
-      box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
+      box-shadow: 0 0 0 2px rgba($color-accent, 0.1);
     }
 
-    &::placeholder {
-      color: $color-text-secondary;
+    &:hover:not(:focus) {
+      border-color: $color-hover;
     }
-  }
-
-  .textarea {
-    resize: vertical;
-    min-height: 300px;
-    font-family: 'Courier New', monospace;
-  }
-
-  select {
-    cursor: pointer;
   }
 
   .checkbox {
@@ -77,33 +76,6 @@
     }
   }
 
-  .submitButton {
-    width: 100%;
-    padding: $spacing-md $spacing-xl;
-    background-color: $color-accent;
-    color: $color-background;
-    font-size: $font-size-base;
-    font-weight: bold;
-    border: $border-width solid $color-accent;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    &:hover:not(:disabled) {
-      background-color: $color-background;
-      color: $color-accent;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-  }
-
   @media (max-width: 768px) {
     padding: $spacing-lg;
     margin: $spacing-md;
@@ -113,6 +85,11 @@
     }
   }
 }
+
+
+
+
+
 
 
 
